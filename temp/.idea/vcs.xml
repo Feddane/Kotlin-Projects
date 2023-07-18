@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Learn-Kotlin-Projects" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Learn-Kotlin-Projects/Kotlin-fundamentals" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Learn-Kotlin-Projects/kotlin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kotlin" vcs="Git" />
+  </component>
+</project>
