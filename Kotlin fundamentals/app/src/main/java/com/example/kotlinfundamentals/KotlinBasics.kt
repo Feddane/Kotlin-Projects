@@ -1,11 +1,14 @@
 package com.example.kotlinfundamentals
 
 fun main(){
+
+    //you can create a var without writing the type
+
     val she = "mirna" //val can't be overwritten
 
     var me = "chaïma" //var we can change it
     me = "sonia"
-    print("hello " + me + "!")
+    print("hello $me!     ")
 
     //integer types: Bytes(8 bit), short(16 bit), long(64 bit), int(32 bit)
     var myByte: Byte = 13
@@ -23,7 +26,18 @@ fun main(){
 
     //char and string type
     var stringWord: String = "hello"
+    var length = stringWord.length
+
+    print("the length of this word is $length    ")     //string templates $
     var letterchar = "h"
+
+    //arithmetic operators (+, -, *,/, %)
+    var res = 4 + 6
+    //res /= 2
+    //res *= 2
+    //res -= 2
+    res %= 2
+    print("the result is: $res")
 
 
 }
