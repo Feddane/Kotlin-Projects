@@ -61,15 +61,35 @@ fun main(){
     var heightPerson2 = 180
 
     if (heightPerson1 < heightPerson2){
-        print("yes")
+        println("yes")
     }else if(heightPerson1 > 192){
         println("well")
     }else{
         println("no")
     }
 
+    var name = "chaima"
+    if(name == "chaima" ){
+        println("love your name!!")
+    }
 
+    //when expressions
+    var month = 3
+    when (month){
+        in 3..5 -> println("spring")
+        in 6..8  -> println("summer")
+        in 9..11-> println("fall")
+        12, 1,2 -> println("fall")
+        else -> println("Invalid season")
+    }
 
+    var x : Any = 13.25
+    when(x){
+        is Int -> println("$x is an int")
+        is Double -> println("$x is a double")
+        is Float -> println("$x is a float")
+        else -> println("no one!!")
+    }
 
 
 }
