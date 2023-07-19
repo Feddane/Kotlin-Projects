@@ -8,7 +8,7 @@ fun main(){
 
     var me = "chaïma" //var we can change it
     me = "sonia"
-    print("hello $me!     ")
+    println("hello $me!")
 
     //integer types: Bytes(8 bit), short(16 bit), long(64 bit), int(32 bit)
     var myByte: Byte = 13
@@ -28,7 +28,7 @@ fun main(){
     var stringWord: String = "hello"
     var length = stringWord.length
 
-    print("the length of this word is $length    ")     //string templates $
+    println("the length of this word is $length")     //string templates $
     var letterchar = "h"
 
     //arithmetic operators (+, -, *,/, %)
@@ -43,9 +43,9 @@ fun main(){
     //comparaison arithmetics (==, !=, <, >,<=, >=)
     val isEqual = 5==3
     val isDifferent = 5!=3
-    print(isEqual)
-    print("is5greater3 ${5>3}   ")
-    print("${5<=3}   ")
+    println(isEqual)
+    println("is5greater3 ${5>3}   ")
+    println("${5<=3}   ")
 
     //Assignment operators (+=, -=, *=, /=, %=)
     var myNum = 5
@@ -55,6 +55,21 @@ fun main(){
     //increment & decrement operators(++, --)
     myNum++
     myNum--
+
+    //if statements
+    var heightPerson1 = 170
+    var heightPerson2 = 180
+
+    if (heightPerson1 < heightPerson2){
+        print("yes")
+    }else if(heightPerson1 > 192){
+        println("well")
+    }else{
+        println("no")
+    }
+
+
+
 
 
 }
