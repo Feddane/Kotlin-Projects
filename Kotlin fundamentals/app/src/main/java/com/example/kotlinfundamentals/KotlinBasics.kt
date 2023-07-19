@@ -17,5 +17,13 @@ fun main(){
     val myFloat : Float = 16.27F
     val myDouble : Double = 16.45478764879999845
 
+    //Boolean type
+    var isSunny: Boolean = false
+    isSunny = true
+
+    //char and string type
+    var stringWord: String = "hello"
+    var letterchar = "h"
+
 
 }
