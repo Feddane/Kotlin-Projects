@@ -37,7 +37,14 @@ fun main(){
     //res *= 2
     //res -= 2
     res %= 2
-    print("the result is: $res")
+    print("the result is: $res  ")
 
+
+    //comparaison arithmetics (==, !=, <, >,<=, >=)
+    val isEqual = 5==3
+    val isDifferent = 5!=3
+    print(isEqual)
+    print("is5greater3 ${5>3}   ")
+    print("${5<=3}   ")
 
 }
