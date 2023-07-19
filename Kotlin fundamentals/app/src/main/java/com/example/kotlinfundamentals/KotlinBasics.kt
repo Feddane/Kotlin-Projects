@@ -47,4 +47,14 @@ fun main(){
     print("is5greater3 ${5>3}   ")
     print("${5<=3}   ")
 
+    //Assignment operators (+=, -=, *=, /=, %=)
+    var myNum = 5
+    myNum +=3
+    myNum *=3
+
+    //increment & decrement operators(++, --)
+    myNum++
+    myNum--
+
+
 }
