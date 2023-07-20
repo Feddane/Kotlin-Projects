@@ -98,5 +98,12 @@ fun main(){
         println("$z")
     }
 
+    //Do while
+     do {
+         z++
+     }while (z<=13)
+
+
+
 
 }
