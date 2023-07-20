@@ -91,5 +91,12 @@ fun main(){
         else -> println("no one!!")
     }
 
+    //while loop
+    var z = 3
+    while (z <= 10){
+        z += 1
+        println("$z")
+    }
+
 
 }
