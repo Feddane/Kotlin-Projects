@@ -103,7 +103,19 @@ fun main(){
          z++
      }while (z<=13)
 
+    //for loop
+     for (num in 1..5){
+         print("$num")
+     }
 
+    for (i in 1 until 5){
+        print("$i")
+    }
+
+
+    for (p in 10 downTo  5){
+        print("$p")
+    }
 
 
 }
