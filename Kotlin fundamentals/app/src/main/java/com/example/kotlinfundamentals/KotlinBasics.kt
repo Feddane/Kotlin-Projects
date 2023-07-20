@@ -121,11 +121,25 @@ fun main(){
         print("$p")
     }
 
-
+    /* call myFunction */
     myFunction()
 
+    /* call chouchou */
     var result = chouchou(5,2)
     println("the result is $result")
+
+
+    //Nullables
+    var nullableName : String? = "Chaïma"
+    nullableName = null     //with the present of ? it is accepted that name = null
+    var len2 = nullableName?.length //to show the length
+    /*nullableName?.let { println(it.length) }*/
+
+    var name2 = nullableName ?: "Mirna" //to say if nullable is empty then put mirna as name
+    println("the name is $name2")
+
+
+
 
 }
 
