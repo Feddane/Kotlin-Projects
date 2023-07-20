@@ -110,6 +110,10 @@ fun main(){
 
     for (i in 1 until 5){
         print("$i")
+
+        if (i/2 == 5){
+            break
+        }
     }
 
 
@@ -118,4 +122,18 @@ fun main(){
     }
 
 
+    myFunction()
+
+    var result = chouchou(5,2)
+    println("the result is $result")
+
+}
+
+//functions
+fun myFunction(){
+    println("called for myFunction")
+}
+
+fun chouchou (a: Int, b:Int) : Int{
+    return a + b
 }
