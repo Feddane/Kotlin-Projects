@@ -11,7 +11,15 @@ fun main(){
     println("the owner of chaima is ${chaïma.owner} ")
 
 
+    var user1 = user(1, "mirna khiari")
+    var user2 = user(1, "mirna khiari")
+    println(user1.equals(user2))
+    val user3= user1.copy(name= "maya")
+    println(user3)
+
 }
+
+data class user (val id: Long, var name: String)
 
 class person (firstName:  String, lastName:  String){
 
