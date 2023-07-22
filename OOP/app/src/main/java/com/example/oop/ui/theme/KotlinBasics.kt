@@ -29,55 +29,104 @@ import androidx.compose.ui.text.toLowerCase
 
 
 /************************interfaces***************************/
-interface Driveable {
-    val maxSpeed: Double
-    fun drive(): String
-    fun brake(){
-        println("The drivable is braking")
+//interface Driveable {
+//    val maxSpeed: Double
+//    fun drive(): String
+//    fun brake(){
+//        println("The drivable is braking")
+//    }
+//}
+//
+//// Class Car which extends the interface
+//open class Car(override val maxSpeed: Double,
+//               open val brandName: String
+//) : Driveable {
+//    // open so it can be overriden by inhereting classes
+//    open var range: Double = 0.0
+//
+//    open fun extendRange(amount: Double) {
+//        if (amount > 0) {
+//            range += amount
+//        }
+//
+//    }
+//
+//    override fun drive(): String {
+//        println("Drove for $range KM")
+//        return range.toString()
+//    }
+//
+//    // overridden functions are implicitly open:
+//    override fun brake() {
+//        println("The car is breaking")
+//    }
+//}
+//// In case there is no primary Constructor
+//class ElectricCar(override val maxSpeed: Double,
+//                  override val brandName: String,
+//                  batteryLife: Double) : Car(maxSpeed, brandName) {
+//
+//    // in KM
+//    override var range = batteryLife/6
+//
+//    override fun drive() = "Overriding the drive of my Car"
+//
+//    fun drive(distance: Double){
+//        println("Drove for $distance KM on electricity")
+//    }
+//    override fun brake(){
+//        println("The electirc car is breaking")
+//    }
+//}
+
+/*************** Abstractt************************/
+abstract class Mammal(val name: String, val origin: String,
+                      val weight: Double) {   // Concrete (Non Abstract) Properties
+
+    // Abstract Property (Must be overridden by Subclasses)
+    abstract var maxSpeed: Double
+
+    // Abstract Methods (Must be implemented by Subclasses)
+    abstract fun run()
+    abstract fun breath()
+
+    // Concrete (Non Abstract) Method
+    fun displayDetails() {
+        println("Name: $name, Origin: $origin, Weight: $weight, " +
+                "Max Speed: $maxSpeed")
     }
 }
 
-// Class Car which extends the interface
-open class Car(override val maxSpeed: Double,
-               open val brandName: String
-) : Driveable {
-    // open so it can be overriden by inhereting classes
-    open var range: Double = 0.0
+class Human(name: String, origin: String, weight: Double,
+            override var maxSpeed: Double): Mammal(name, origin, weight) {
 
-    open fun extendRange(amount: Double) {
-        if (amount > 0) {
-            range += amount
-        }
-
+    override fun run() {
+        // Code to run
+        println("Runs on two legs")
     }
 
-    override fun drive(): String {
-        println("Drove for $range KM")
-        return range.toString()
-    }
-
-    // overridden functions are implicitly open:
-    override fun brake() {
-        println("The car is breaking")
+    override fun breath() {
+        // Code to breath
+        println("Breath through mouth or nose")
     }
 }
-// In case there is no primary Constructor
-class ElectricCar(override val maxSpeed: Double,
-                  override val brandName: String,
-                  batteryLife: Double) : Car(maxSpeed, brandName) {
 
-    // in KM
-    override var range = batteryLife/6
+class Elephant(name: String, origin: String, weight: Double,
+               override var maxSpeed: Double): Mammal(name, origin, weight) {
 
-    override fun drive() = "Overriding the drive of my Car"
-
-    fun drive(distance: Double){
-        println("Drove for $distance KM on electricity")
+    override fun run() {
+        // Code to run
+        println("Runs on four legs")
     }
-    override fun brake(){
-        println("The electirc car is breaking")
+
+    override fun breath() {
+        // Code to breath
+        println("Breath through the trunk")
     }
 }
+
+
+
 fun main(){
 
     var chaïma = person("chaima", "feddane")
@@ -106,17 +155,29 @@ fun main(){
 
 
     /**********interfaces*******************/
-    var audiA3 = Car(200.0, "Audi")
-    var teslaS = ElectricCar(250.0, "Tesla", 85.0)
+//    var audiA3 = Car(200.0, "Audi")
+//    var teslaS = ElectricCar(250.0, "Tesla", 85.0)
+//
+//    // Polymorphism is the ability to treat objects
+//    // with similar traits in a common way
+//    audiA3.drive()
+//    // Only works because ElectricCar is a Subclass of Car
+//    // Or alternatively works if Car was an Interface and ElectricCar would inherit from it
+//    teslaS.drive()
+//    teslaS.drive(200.0)
 
-    // Polymorphism is the ability to treat objects
-    // with similar traits in a common way
-    audiA3.drive()
-    // Only works because ElectricCar is a Subclass of Car
-    // Or alternatively works if Car was an Interface and ElectricCar would inherit from it
-    teslaS.drive()
-    teslaS.drive(200.0)
 
+    /************Abstract*******************/
+    val human = Human("Denis", "Russia",
+        70.0, 28.0)
+    val elephant = Elephant("Rosy", "India",
+        5400.0, 25.0)
+
+    human.run()
+    elephant.run()
+
+    human.breath()
+    elephant.breath()
 }
 
 data class user (val id: Long, var name: String)
