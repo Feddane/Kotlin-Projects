@@ -217,4 +217,12 @@ class person (firstName:  String, lastName:  String){
         this.owner = "mirna"
 
     }
+
+
+
+    /*****typecasting*********/
+    val obj : Any= 1333
+    val str : String? =  obj as? String
+
+
 }
