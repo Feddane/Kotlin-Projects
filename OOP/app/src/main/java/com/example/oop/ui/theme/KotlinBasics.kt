@@ -2,31 +2,82 @@ package com.example.oop.ui.theme
 
 import androidx.compose.ui.text.toLowerCase
 
+/********************inheritance*********************/
+//open class Car(val name: String, val brand: String) {
+//    // open so it can be overriden by inhereting classes
+//    open var range: Double = 0.0
+//    fun extendRange(amount: Double) {
+//        if(amount > 0) {
+//            range += amount
+//        }
+//    }
+//    open fun drive(distance: Double){
+//        println("Drove for $distance KM")
+//    }
+//}
+//
+//class ElectricCar(name: String, brand: String, batteryLife: Double) : Car(name, brand) {
+//
+//    var chargerType = "Type1"
+//    // in KM
+//    override var range = batteryLife/6
+//
+//    override fun drive(distance: Double){
+//        println("Drove for $distance KM on electricity")
+//    }
+//}
 
-open class Car(val name: String, val brand: String) {
-    // open so it can be overriden by inhereting classes
-    open var range: Double = 0.0
-    fun extendRange(amount: Double) {
-        if(amount > 0) {
-            range += amount
-        }
-    }
-    open fun drive(distance: Double){
-        println("Drove for $distance KM")
+
+/************************interfaces***************************/
+interface Driveable {
+    val maxSpeed: Double
+    fun drive(): String
+    fun brake(){
+        println("The drivable is braking")
     }
 }
 
-class ElectricCar(name: String, brand: String, batteryLife: Double) : Car(name, brand) {
+// Class Car which extends the interface
+open class Car(override val maxSpeed: Double,
+               open val brandName: String
+) : Driveable {
+    // open so it can be overriden by inhereting classes
+    open var range: Double = 0.0
 
-    var chargerType = "Type1"
+    open fun extendRange(amount: Double) {
+        if (amount > 0) {
+            range += amount
+        }
+
+    }
+
+    override fun drive(): String {
+        println("Drove for $range KM")
+        return range.toString()
+    }
+
+    // overridden functions are implicitly open:
+    override fun brake() {
+        println("The car is breaking")
+    }
+}
+// In case there is no primary Constructor
+class ElectricCar(override val maxSpeed: Double,
+                  override val brandName: String,
+                  batteryLife: Double) : Car(maxSpeed, brandName) {
+
     // in KM
     override var range = batteryLife/6
 
-    override fun drive(distance: Double){
+    override fun drive() = "Overriding the drive of my Car"
+
+    fun drive(distance: Double){
         println("Drove for $distance KM on electricity")
     }
+    override fun brake(){
+        println("The electirc car is breaking")
+    }
 }
-
 fun main(){
 
     var chaïma = person("chaima", "feddane")
@@ -43,14 +94,27 @@ fun main(){
     println(user3)
 
     /************inheritance***************/
-    var audiA3 = Car("A3", "Audi")
-    var teslaS = ElectricCar("S-Model", "Tesla", 85.0)
+//    var audiA3 = Car("A3", "Audi")
+//    var teslaS = ElectricCar("S-Model", "Tesla", 85.0)
+//
+//    // Polymorphism is the ability to treat objects
+//    // with similar traits in a common way
+//    audiA3.drive(200.0)
+//    // Only works because ElectricCar is a Subclass of Car
+//    // Or alternativly works if Car was a Interface and Electriccar would inherit from it
+//    teslaS.drive(200.0)
+
+
+    /**********interfaces*******************/
+    var audiA3 = Car(200.0, "Audi")
+    var teslaS = ElectricCar(250.0, "Tesla", 85.0)
 
     // Polymorphism is the ability to treat objects
     // with similar traits in a common way
-    audiA3.drive(200.0)
+    audiA3.drive()
     // Only works because ElectricCar is a Subclass of Car
-    // Or alternativly works if Car was a Interface and Electriccar would inherit from it
+    // Or alternatively works if Car was an Interface and ElectricCar would inherit from it
+    teslaS.drive()
     teslaS.drive(200.0)
 
 }
