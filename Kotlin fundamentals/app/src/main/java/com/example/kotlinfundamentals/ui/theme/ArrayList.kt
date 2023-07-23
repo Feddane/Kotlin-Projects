@@ -10,4 +10,15 @@ fun main(){
     for (i in arraylist){
         print(i+",")
     }
+
+
+    //lambda expression: is a function which has no namae.
+    val sum: (Int, Int) -> Int = {a:Int, b:Int -> a+ b}
+    println(sum(10,5))
+
+
+    //or
+    val sum2 = {a:Int, b:Int -> a+ b}
+    println(sum(10,5))
+
 }
