@@ -21,6 +21,7 @@ fun main(){
     val sum2 = {a:Int, b:Int -> a+ b}
     println(sum(10,5))
 
+
 }
 
 
@@ -60,6 +61,14 @@ class outerClass2{
 //safe cast operator: as?
 //it returns anull if casting is not possible rather than throwig an ClassCastException exception
 
-
-
+//try and catch
+//*************1-throw MyException ("this is throws an exception")
+//*************2- try, catch, finally, throw
+//try{
+//
+//}catch(e: someexception){
+//
+//}finally{
+//
+//}
 
