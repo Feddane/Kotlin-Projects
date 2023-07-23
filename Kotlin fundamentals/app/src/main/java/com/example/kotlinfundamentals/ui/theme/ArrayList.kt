@@ -51,3 +51,15 @@ class outerClass2{
 
 }
 
+
+
+//unsafe cast operator: as
+//a nullable string (string?) cannot be cast to non nullable string (string) this throws an excaption
+
+
+//safe cast operator: as?
+//it returns anull if casting is not possible rather than throwig an ClassCastException exception
+
+
+
+
