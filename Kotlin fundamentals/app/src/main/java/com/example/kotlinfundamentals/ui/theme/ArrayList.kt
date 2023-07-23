@@ -30,7 +30,7 @@ fun main(){
 class base(){
     var a = 1
     private var b = 2
-    protected open var  c = 4
+    protected open var  c = 10
     public var g = 5
 }
 
