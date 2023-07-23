@@ -32,3 +32,22 @@ class base(){
     protected open var  c = 4
     public var g = 5
 }
+
+//nested class is such a class which is created inside another class
+//it is by default static, their data can be accessed without creating an object of the class
+class outerClass{
+
+    class NestedClass{}
+
+}
+
+
+//inner class is a class which is created inside another class with keyword inner
+//it can not be declared inside interfaces or non-inner nested classes
+//it is able to access members of its outer class even if it is private
+class outerClass2{
+
+   inner class innerclass{}
+
+}
+
