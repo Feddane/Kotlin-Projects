@@ -22,3 +22,13 @@ fun main(){
     println(sum(10,5))
 
 }
+
+
+//visibility modifiers
+
+class base(){
+    var a = 1
+    private var b = 2
+    protected open var  c = 4
+    public var g = 5
+}
