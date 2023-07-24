@@ -22,6 +22,7 @@ import java.util.SimpleTimeZone
 class MainActivity : ComponentActivity() {
 
     private var tvSelectedDate : TextView? = null //nullable
+    private var tvAgeInMinutes : TextView? = null //nullable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,6 +30,7 @@ class MainActivity : ComponentActivity() {
 
         val btn : Button = findViewById(R.id.button)
         tvSelectedDate  = findViewById(R.id.tv)
+        tvAgeInMinutes = findViewById(R.id.tvAge)
 
         btn.setOnClickListener{
             clickDatePicker()
@@ -46,6 +48,7 @@ class MainActivity : ComponentActivity() {
         DatePickerDialog(this,
             { view, selectedYear, selectedMonth, selectedDayOfMonth ->
 
+                //select the date
                 val selectedDate = "$selectedDayOfMonth/${selectedMonth + 1}/${selectedYear}"
 
                 tvSelectedDate?.text = selectedDate
@@ -53,6 +56,17 @@ class MainActivity : ComponentActivity() {
                 val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
 
                 val theDate = sdf.parse(selectedDate)
+
+                //selected date in minutes
+                val selectedDateInMinutes = theDate.time / 60000
+
+                val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+
+                val currentDateInMinutes = currentDate.time / 60000
+
+                val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+
+                tvAgeInMinutes?.text = differenceInMinutes.toString()
             },
             year,
             month,

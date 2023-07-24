@@ -106,6 +106,7 @@
         app:layout_constraintVertical_bias="0.552" />
 
     <TextView
+        android:id="@+id/tvAge"
         android:layout_width="176dp"
         android:layout_height="38dp"
         android:text="1400000"
