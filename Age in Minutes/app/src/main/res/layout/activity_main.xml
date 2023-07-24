@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#E1C47E"
+    android:background="#EFDDB0"
     android:layout_gravity="center_horizontal"
     android:padding="16dp">
 
@@ -45,7 +45,6 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/vbn"
         android:layout_width="176dp"
         android:layout_height="38dp"
         android:text="IN MINUTES"
@@ -90,7 +89,6 @@
         app:layout_constraintVertical_bias="0.453" />
 
     <TextView
-
         android:layout_width="176dp"
         android:layout_height="38dp"
         android:text="Selected date"
@@ -121,20 +119,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.649" />
 
-    <TextView
-        android:layout_width="176dp"
-        android:layout_height="38dp"
-        android:text="Selected date"
-        android:textAlignment="center"
-        android:textColor="#b7b7a4"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
