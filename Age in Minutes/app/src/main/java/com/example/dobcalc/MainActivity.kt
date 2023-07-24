@@ -38,15 +38,15 @@ class MainActivity : ComponentActivity() {
 
     }
 
-    fun clickDatePicker (){
+    private fun clickDatePicker (){
 
         val mycalendar = Calendar.getInstance()
         val year =  mycalendar.get(Calendar.YEAR)
         val month =  mycalendar.get(Calendar.MONTH)
         val day =  mycalendar.get(Calendar.DAY_OF_MONTH)
 
-        DatePickerDialog(this,
-            { view, selectedYear, selectedMonth, selectedDayOfMonth ->
+        val dpd = DatePickerDialog(this,
+            { _, selectedYear, selectedMonth, selectedDayOfMonth ->
 
                 //select the date
                 val selectedDate = "$selectedDayOfMonth/${selectedMonth + 1}/${selectedYear}"
@@ -58,20 +58,30 @@ class MainActivity : ComponentActivity() {
                 val theDate = sdf.parse(selectedDate)
 
                 //selected date in minutes
-                val selectedDateInMinutes = theDate.time / 60000
+                    //if the day isn't empty ?.let
+                theDate?.let {
+                    val selectedDateInMinutes = theDate.time / 60000
 
-                val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+                    val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
 
-                val currentDateInMinutes = currentDate.time / 60000
+                    currentDate?.let {
+                        val currentDateInMinutes = currentDate.time / 60000
 
-                val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+                        val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
 
-                tvAgeInMinutes?.text = differenceInMinutes.toString()
+                        tvAgeInMinutes?.text = differenceInMinutes.toString()
+                    }
+
+                }
+
             },
             year,
             month,
             day
-        ).show()
+        )
+        dpd.datePicker.maxDate = System.currentTimeMillis() - 86400000
+        dpd.show()
+
         }
 
 
