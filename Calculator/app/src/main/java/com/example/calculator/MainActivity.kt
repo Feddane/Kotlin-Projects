@@ -33,6 +33,10 @@ class MainActivity : ComponentActivity() {
         //to test if the buttons are running
         tvInput.append((view as Button).text)
         lastNumeric = true
+
+        if (tvInput.text.contains("1")){
+
+        }
     }
 
     fun onClear (view: View){
@@ -48,5 +52,22 @@ class MainActivity : ComponentActivity() {
             lastDot = true
         }
     }
+
+    fun onOperator(view: View){
+        if (lastNumeric && !isOperatorAdded(tvInput.text.toString())){
+                tvInput.append((view as Button).text)
+                lastNumeric = false
+                lastDot = false
+            }
+    }
+
+    private fun isOperatorAdded(value: String):Boolean {
+         return if (value.startsWith("-")){
+             false
+         }else{
+             value.contains("/") ||  value.contains("+") ||  value.contains("*") ||  value.contains("-")
+         }
+    }
+
 
 }
