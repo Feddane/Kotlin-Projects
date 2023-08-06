@@ -91,7 +91,40 @@ class MainActivity : ComponentActivity() {
                         one = prefix + one
                     }
 
-                    tvInput.text = (one.toDouble() - two.toDouble()).toString()
+                    tvInput.text = removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
+                }else if (tvValue.contains("*")){
+                    val splitvalue = tvValue.split("*")
+
+                    var one = splitvalue[0]
+                    var two = splitvalue[1]
+
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text = removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
+                }else if (tvValue.contains("+")){
+                    val splitvalue = tvValue.split("+")
+
+                    var one = splitvalue[0]
+                    var two = splitvalue[1]
+
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text = removeZeroAfterDot((one.toDouble() + two.toDouble()).toString())
+                }else if (tvValue.contains("/")){
+                    val splitvalue = tvValue.split("/")
+
+                    var one = splitvalue[0]
+                    var two = splitvalue[1]
+
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text = removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
                 }
 
             }catch (e: ArithmeticException){
@@ -99,6 +132,15 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    private fun removeZeroAfterDot(result: String): String{
+        var value = result
+
+        if (result.contains(".0"))
+            value = result.substring(0, result.length - 2)
+        return value
+    }
+
 
 
 }
