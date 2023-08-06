@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
         }
 
     }
-
+        //clickdatepiker fucntion
     private fun clickDatePicker (){
 
         val mycalendar = Calendar.getInstance()
