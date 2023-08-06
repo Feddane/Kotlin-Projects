@@ -3,6 +3,7 @@ package com.example.calculator
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,15 +17,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.calculator.ui.theme.CalculatorTheme
 
 class MainActivity : ComponentActivity() {
+    lateinit var tvInput: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainactivity)
 
-//        val btn : Button = findViewById<Button>(R.id.btnSeven)
-
+        tvInput = findViewById(R.id.tvInput)
     }
 
     fun onDigit (view: View){
-        Toast.makeText(this, "hello world!", Toast.LENGTH_SHORT).show()
+        //to test if the buttons are running
+        tvInput.append((view as Button).text)
     }
 }
