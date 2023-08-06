@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.calculator.ui.theme.CalculatorTheme
+import java.lang.ArithmeticException
 
 class MainActivity : ComponentActivity() {
     lateinit var tvInput: TextView
@@ -67,6 +68,36 @@ class MainActivity : ComponentActivity() {
          }else{
              value.contains("/") ||  value.contains("+") ||  value.contains("*") ||  value.contains("-")
          }
+    }
+
+    fun onEqual(view: View){
+        if (lastNumeric ){
+            var tvValue = tvInput.text.toString()
+            var prefix = ""
+            try {
+                if (tvValue.startsWith("-")){
+                    prefix = "-"
+                    tvValue = tvValue.substring(1)
+                }
+
+
+                if (tvValue.contains("-")){
+                    val splitvalue = tvValue.split("-")
+
+                    var one = splitvalue[0]
+                    var two = splitvalue[1]
+
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text = (one.toDouble() - two.toDouble()).toString()
+                }
+
+            }catch (e: ArithmeticException){
+
+            }
+        }
     }
 
 
