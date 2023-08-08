@@ -12,6 +12,6 @@ class QuizQuestionsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_questions)
 
         val questionsList = Constants.getQuestions()
-        Log.i("TAG","QuestionsList size is, ${questionsList.size}")
+
     }
 }
