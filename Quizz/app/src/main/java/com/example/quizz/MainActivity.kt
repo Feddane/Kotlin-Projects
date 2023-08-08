@@ -15,6 +15,7 @@ import com.example.quizz.ui.theme.QuizzTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.mainactivity)
 
 }
 }
