@@ -60,7 +60,70 @@
                 android:text="0/9"/>
 
         </LinearLayout>
-        
+
+
+        <TextView
+            android:id="@+id/tv_option_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:padding="15dp"
+            android:background="@drawable/default_option_border"
+            android:gravity="center"
+            android:textColor="#7A8089"
+            android:text="Apple"/>
+
+        <TextView
+            android:id="@+id/tv_option_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:textColor="#7A8089"
+            android:background="@drawable/default_option_border"
+            android:text="Apple"/>
+
+
+        <TextView
+            android:id="@+id/tv_option_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:background="@drawable/default_option_border"
+            android:textColor="#7A8089"
+            android:text="Apple"/>
+
+
+        <TextView
+            android:id="@+id/tv_option_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:background="@drawable/default_option_border"
+            android:padding="15dp"
+            android:gravity="center"
+            android:textColor="#7A8089"
+            android:text="Apple"/>
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/design_default_color_primary"
+            android:text="SUBMIT"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
     </LinearLayout>
 
 
