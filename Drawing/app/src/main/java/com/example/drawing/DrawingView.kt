@@ -10,6 +10,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.graphics.*
 import android.util.Log
+import android.util.TypedValue
 import android.view.MotionEvent
 
 class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) {
@@ -35,7 +36,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         mDrawPaint!!.style = Paint.Style.STROKE
         mDrawPaint!!.strokeCap = Paint.Cap.ROUND
         mCanvasPaint = Paint(Paint.DITHER_FLAG) // Paint flag that enables dithering when blitting.
-        mBrushSize = 20.toFloat()
+//        mBrushSize = 20.toFloat()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -93,6 +94,12 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         invalidate()
         return true
     }
+
+    fun setSizeForBrush(newsize: Float){
+        mBrushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, newsize, resources.displayMetrics)
+        mDrawPaint!!.strokeWidth = mBrushSize
+    }
+
 
     internal inner class CustomPath(var color: Int, var brushThickness: Float) : Path()
 
