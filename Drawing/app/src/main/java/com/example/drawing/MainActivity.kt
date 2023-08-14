@@ -4,11 +4,15 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.get
 
 
 class MainActivity : ComponentActivity() {
     private  var drawingView: DrawingView?= null
+    private  var mImageButtonCurrentPaint: ImageButton?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -16,6 +20,12 @@ class MainActivity : ComponentActivity() {
         drawingView = findViewById(R.id.drawingView)
         drawingView?.setSizeForBrush(20.toFloat())
 
+        val linearLayoutPaintColors = findViewById<LinearLayout>(R.id.ll_paint_colors)
+
+        mImageButtonCurrentPaint = linearLayoutPaintColors[1] as ImageButton
+        mImageButtonCurrentPaint!!.setImageDrawable(
+            ContextCompat.getDrawable(this, R.drawable.pallet_pressed)
+        )
 
         val ib_brush : ImageButton = findViewById(R.id.ib_brush)
         ib_brush.setOnClickListener {
