@@ -22,6 +22,7 @@ import com.example.permissions.ui.theme.PermissionsTheme
 
 class MainActivity : ComponentActivity() {
 
+    //permission for the camera
     private var cameraResultLauncher : ActivityResultLauncher<String> =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()){
@@ -29,9 +30,37 @@ class MainActivity : ComponentActivity() {
                     Toast.makeText(this, "Permission granted for camera.", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this, "Pwemission denied for camera.", Toast.LENGTH_SHORT).show()
-
             }
         }
+
+
+    //permission for camera, location and coarse location ---3options
+    private var cameraAndLocationResultLauncher : ActivityResultLauncher<Array<String>> =
+        registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()){
+            permissions -> permissions.entries.forEach{
+                val permissionName = it.key
+                val isGranted = it.value
+                if (isGranted){
+                    if (permissionName == Manifest.permission.ACCESS_FINE_LOCATION){
+                        Toast.makeText(this, "Permission granted for fine location", Toast.LENGTH_SHORT).show()
+                    }else if (permissionName == Manifest.permission.ACCESS_COARSE_LOCATION){
+                        Toast.makeText(this, "Permission granted for COARSE Location", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this, "Permission granted for Camera", Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    if (permissionName == Manifest.permission.ACCESS_FINE_LOCATION){
+                        Toast.makeText(this, "Permission denied for fine location", Toast.LENGTH_SHORT).show()
+                    }else if (permissionName == Manifest.permission.ACCESS_COARSE_LOCATION){
+                        Toast.makeText(this, "Permission denied for COARSE Location", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this, "Permission denied for Camera", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+        }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +74,11 @@ class MainActivity : ComponentActivity() {
                 showRationaleDialog("Permission Demo requires camera access",
                 "Camera cannot be used because Camera access is denied")
             }else{
-                cameraResultLauncher.launch(Manifest.permission.CAMERA)
+                cameraAndLocationResultLauncher.launch(
+                    arrayOf(Manifest.permission.CAMERA,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION)
+                )
             }
         }
 
