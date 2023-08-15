@@ -1,9 +1,12 @@
 package com.example.dialog
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -37,10 +40,29 @@ class MainActivity : ComponentActivity() {
             alertDialogFunction()
         }
 
+        button2.setOnClickListener {view ->
+            customDialogFunction()
+        }
 
 
 
+    }
 
+    private fun customDialogFunction() {
+        val customDialog = Dialog(this)
+        customDialog.setContentView(R.layout.custom_dialog)
+        val tvSubmit = customDialog.findViewById<TextView>(R.id.tv_submit)
+        tvSubmit.setOnClickListener(View.OnClickListener {
+            Toast.makeText(applicationContext, "clicked submit", Toast.LENGTH_SHORT).show()
+            customDialog.dismiss()
+        })
+        val tvCancel = customDialog.findViewById<TextView>(R.id.tv_cancel)
+        tvCancel.setOnClickListener(View.OnClickListener {
+            Toast.makeText(applicationContext, "clicked cancel", Toast.LENGTH_SHORT).show()
+            customDialog.dismiss()
+        })
+
+        customDialog.show()
     }
 
     private fun alertDialogFunction() {
