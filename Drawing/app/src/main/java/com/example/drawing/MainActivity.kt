@@ -81,6 +81,11 @@ class MainActivity : ComponentActivity() {
             showBrushSizeChooserDialog()
         }
 
+        val ib_undo : ImageButton = findViewById(R.id.ib_undo)
+        ib_undo.setOnClickListener {
+            drawingView?.onClickUndo()
+        }
+
         val ibGallery : ImageButton = findViewById(R.id.ib_gallery)
         ibGallery.setOnClickListener{
             requestStoragePermission()
