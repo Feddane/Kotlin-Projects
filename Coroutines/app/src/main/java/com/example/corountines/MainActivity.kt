@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
 
-//    var customProgressDialog : Dialog? = null
+    var customProgressDialog : Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         val btnExecute : Button = findViewById(R.id.btn_execute)
 
         btnExecute.setOnClickListener {
-//            showProgressDialog()
+            showProgressDialog()
            lifecycleScope.launch {
                execute("Task executed successfully")
            }
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                 Log.e("delay", "" + i)
             }
             runOnUiThread{
-//                cancelProgressDialog()
+                cancelProgressDialog()
                 Toast.makeText(this@MainActivity, result, Toast.LENGTH_SHORT).show()
             }
         }
@@ -46,21 +46,21 @@ class MainActivity : ComponentActivity() {
 
 
     //when you want to run something but you want the user wait for a response
-//    private fun showProgressDialog() {
-//        val customProgressDialog = Dialog(this)
-//
-//        customProgressDialog.setContentView(R.layout.dialog_custom_progress)
-//
-//        customProgressDialog.show()
-//    }
+    private fun showProgressDialog() {
+        val customProgressDialog = Dialog(this)
+
+        customProgressDialog.setContentView(R.layout.dialog_custom_progress)
+
+        customProgressDialog.show()
+    }
 
 
-//    private fun cancelProgressDialog(){
-//        if (customProgressDialog != null){
-//            customProgressDialog?.dismiss()
-//            customProgressDialog = null
-//        }
-//    }
+    private fun cancelProgressDialog(){
+        if (customProgressDialog != null){
+            customProgressDialog?.dismiss()
+            customProgressDialog = null
+        }
+    }
 
 
 }
