@@ -4,6 +4,9 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -108,6 +111,9 @@ class MainActivity : ComponentActivity() {
     }
 
 
+    /**
+     * Method is used to launch the dialog to select different brush sizes.
+     */
     private fun showBrushSizeChooserDialog() {
         val brushDialog = Dialog(this)
         brushDialog.setContentView(R.layout.dialog_brush_size)
@@ -130,8 +136,14 @@ class MainActivity : ComponentActivity() {
         })
         brushDialog.show()
     }
-    
-    
+
+
+    // TODO(Step 2 - A function for color selection.)
+    /**
+     * Method is called when color is clicked from pallet_normal.
+     *
+     * @param view ImageButton on which click took place.
+     */
     fun paintClicked(view: View){
         if (view != mImageButtonCurrentPaint){
             val imageButton = view as ImageButton
@@ -167,5 +179,23 @@ class MainActivity : ComponentActivity() {
             }
         builder.create().show()
     }
+
+    //to save the drawing
+//    private fun getBitmapFromView(view: View) : Bitmap{
+//        val returnedBitmap = Bitmap.createBitmap(view.width,
+//            view.height, Bitmap.Config.ARGB_8888)
+//
+//        val canvas = Canvas(returnedBitmap)
+//        val bgDrawable = view.background
+//        if (bgDrawable != null){
+//            bgDrawable.draw(canvas)
+//        }else{
+//            canvas.drawColor(Color.WHITE)
+//        }
+//
+//        view.draw(canvas)
+//
+//        return returnedBitmap
+//    }
 
 }
