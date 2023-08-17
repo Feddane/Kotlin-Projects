@@ -36,6 +36,7 @@ import java.lang.Exception
 class MainActivity : ComponentActivity() {
     private  var drawingView: DrawingView?= null
     private  var mImageButtonCurrentPaint: ImageButton?= null
+    private  var customProgressDialog: Dialog?= null
 
     val openGalleryLauncher : ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
@@ -102,6 +103,7 @@ class MainActivity : ComponentActivity() {
         val ib_save : ImageButton = findViewById(R.id.ib_save)
         ib_save.setOnClickListener {
             if (isReadStorageAllowed()){
+                showProgressDialog()
                 lifecycleScope.launch{
                     val flDrawingView: FrameLayout = findViewById(R.id.fl_drawing_view_container)
 
@@ -244,6 +246,7 @@ class MainActivity : ComponentActivity() {
                     result = f.absolutePath
 
                     runOnUiThread{
+                        cancelProgressDialog()
                         if (result.isNotEmpty()){
                             Toast.makeText(this@MainActivity, "File saved successfully : $result", Toast.LENGTH_SHORT).show()
                         }else{
@@ -259,5 +262,21 @@ class MainActivity : ComponentActivity() {
             }
         }
         return result
+    }
+
+    //custom progress dialog
+    private fun showProgressDialog() {
+        val customProgressDialog = Dialog(this)
+
+        customProgressDialog.setContentView(R.layout.dialog_custom_progress)
+
+        customProgressDialog.show()
+    }
+
+    private  fun cancelProgressDialog(){
+        if (customProgressDialog != null){
+            customProgressDialog?.dismiss()
+            customProgressDialog = null
+        }
     }
 }
