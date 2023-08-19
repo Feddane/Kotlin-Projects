@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
             var connection : HttpURLConnection? = null
 
             try {
-                val url = URL("https://run.mocky.io/v3/6f9fce4a-cc08-44c9-92d6-b6f07c74316e")
+                val url = URL("http://www.mocky.io/v2/5e3826143100006a00d37ffa")
                 connection = url.openConnection() as HttpURLConnection
                 connection.doInput = true //to get Data
                 connection.doOutput = true //to send Data
@@ -111,6 +111,24 @@ class MainActivity : ComponentActivity() {
             val profileDetailsObject = jsonObject.optJSONObject("profile_details")
             val isProfileCompleted = profileDetailsObject.optBoolean("is_profile_completed")
             Log.i("is profile completed ", "$isProfileCompleted")
+
+
+            //And now read a list in a json object
+            val dataListArray = jsonObject.optJSONArray("data_list")
+            Log.i("Data List Size", "${dataListArray.length()}") // for the length of the arraylist
+
+                //to get all the items
+            for (item in 0 until dataListArray.length()){
+                Log.i("value $item", "${dataListArray[item]}")
+
+                val dataItemObject : JSONObject = dataListArray[item] as JSONObject
+
+                val id = dataItemObject.optInt("id")
+                Log.i("id", "$id")
+
+                val value = dataItemObject.optString("value")
+                Log.i("value", value)
+            }
 
         }
 
