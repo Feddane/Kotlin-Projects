@@ -108,9 +108,9 @@ class MainActivity : ComponentActivity() {
 
             //what if we have inside a json another object of json?
             //This is how to read an object inside a json
-//            val profileDetailsObject = jsonObject.optJSONObject("profile_details")
-//            val isProfileCompleted = profileDetailsObject.optBoolean("is_profile_completed")
-//            Log.i("is profile completed ", "$isProfileCompleted")
+            val profileDetailsObject = jsonObject.optJSONObject("profile_details")
+            val isProfileCompleted = profileDetailsObject.optBoolean("is_profile_completed")
+            Log.i("is profile completed ", "$isProfileCompleted")
 
         }
 
