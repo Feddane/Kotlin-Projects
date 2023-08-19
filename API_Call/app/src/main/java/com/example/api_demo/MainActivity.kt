@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.api_demo.ui.theme.API_DEMOTheme
 import org.json.JSONObject
 import java.io.BufferedReader
+import java.io.DataOutputStream
 import java.io.IOException
 import java.io.InputStreamReader
 import java.lang.Exception
@@ -30,10 +31,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        callAPILoginAsyncTask().execute()
+        callAPILoginAsyncTask("chaima", "123456789").execute()
     }
 
-    private inner class callAPILoginAsyncTask(): AsyncTask<Any, Void, String>() {
+    private inner class callAPILoginAsyncTask(val username : String, val password: String): AsyncTask<Any, Void, String>() {
 
         private var customProgressDialog: Dialog? = null
 
@@ -50,6 +51,29 @@ class MainActivity : ComponentActivity() {
                 connection = url.openConnection() as HttpURLConnection
                 connection.doInput = true //to get Data
                 connection.doOutput = true //to send Data
+
+                //sending post request
+                connection.instanceFollowRedirects = false
+
+                connection.requestMethod = "POST"
+                connection.setRequestProperty("Content-Type", "application/json")
+                connection.setRequestProperty("charset", "utf-8")
+                connection.setRequestProperty("Accept", "application/json")
+
+                connection.useCaches = false // cela signifie que la connexion réseau ne doit pas utiliser la mise en cache pour stocker temporairement les données qu'elle récupère à partir de l'URL spécifiée.
+
+                val writeDataOutputStream = DataOutputStream(connection.outputStream)
+                val jsonRequest = JSONObject()
+                jsonRequest.put("username", username)
+                jsonRequest.put("password", password)
+
+                writeDataOutputStream.writeBytes(jsonRequest.toString())
+                writeDataOutputStream.flush()
+                writeDataOutputStream.close()
+
+
+
+
 
                 //how to receive data
                 val httpResult : Int = connection.responseCode
