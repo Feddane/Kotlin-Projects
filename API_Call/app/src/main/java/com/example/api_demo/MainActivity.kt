@@ -5,6 +5,7 @@ import android.app.ProgressDialog
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.api_demo.ui.theme.API_DEMOTheme
+import com.example.api_demo.ui.theme.ResponseData
+import com.google.gson.Gson
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.DataOutputStream
@@ -121,12 +124,38 @@ class MainActivity : ComponentActivity() {
                 Log.i("JSON RESPONSE RESULT",  result)
             }
 
-            //use json object to read data
+            /***************************USE    GSON            --> get values facilement********************/
+            val responseData = Gson().fromJson(result, ResponseData::class.java)
+            Log.i("Message", responseData.message)
+            Log.i("User Id", "${responseData.user_id}")
+            Log.i("Name", responseData.name)
+            Log.i("Email", responseData.email)
+            Log.i("Mobile", "${responseData.mobile}")
+
+            // Profile Details
+            Log.i("Is Profile Completed", "${responseData.profile_details.is_profile_completed}")
+            Log.i("Rating", "${responseData.profile_details.rating}")
+
+            // Data List Details.
+            Log.i("Data List Size", "${responseData.data_list.size}")
+
+            for (item in responseData.data_list.indices) {
+                Log.i("Value $item", "${responseData.data_list[item]}")
+
+                Log.i("ID", "${responseData.data_list[item].id}")
+                Log.i("Value", "${responseData.data_list[item].value}")
+            }
+
+            Toast.makeText(this@MainActivity, responseData.message, Toast.LENGTH_SHORT).show()
+
+
+
+        //use json object to read data
             val jsonObject = JSONObject(result)
 
             //get the values directly
-            val name = jsonObject.optString("name") //get the name from the json object if it exists
-            Log.i("Name", name) //in this case its returns "chaima"
+            val message = jsonObject.optString("message") //get the message from the json object if it exists
+            Log.i("Message", message) //in this case its returns "chaima"
             val id = jsonObject.optInt("id")
             Log.i("Id", "$id") //there's two ways: first way you call id direct et second tu rajoute $ mais c le meme resultat ca donne la valeur direct
 
