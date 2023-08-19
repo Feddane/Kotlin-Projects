@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.api_demo.ui.theme.API_DEMOTheme
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
             var connection : HttpURLConnection? = null
 
             try {
-                val url = URL("https://run.mocky.io/v3/9cfaa375-0f21-48eb-b4c1-6af128b0dd77")
+                val url = URL("https://run.mocky.io/v3/6f9fce4a-cc08-44c9-92d6-b6f07c74316e")
                 connection = url.openConnection() as HttpURLConnection
                 connection.doInput = true //to get Data
                 connection.doOutput = true //to send Data
@@ -95,6 +96,22 @@ class MainActivity : ComponentActivity() {
             if (result != null) {
                 Log.i("JSON RESPONSE RESULT",  result)
             }
+
+            //use json object to read data
+            val jsonObject = JSONObject(result)
+
+            //get the values directly
+            val name = jsonObject.optString("name") //get the name from the json object if it exists
+            Log.i("Name", name) //in this case its returns "chaima"
+            val id = jsonObject.optInt("id")
+            Log.i("Id", "$id") //there's two ways: first way you call id direct et second tu rajoute $ mais c le meme resultat ca donne la valeur direct
+
+            //what if we have inside a json another object of json?
+            //This is how to read an object inside a json
+//            val profileDetailsObject = jsonObject.optJSONObject("profile_details")
+//            val isProfileCompleted = profileDetailsObject.optBoolean("is_profile_completed")
+//            Log.i("is profile completed ", "$isProfileCompleted")
+
         }
 
         private fun showProgressDialog() {
