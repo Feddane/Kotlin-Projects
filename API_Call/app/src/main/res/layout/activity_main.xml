@@ -4,4 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Hello world! This is a demo of Simple REST Api call using "
+        android:layout_marginTop="300dp"
+        android:textColor="@color/black"/>
+
 </LinearLayout>
