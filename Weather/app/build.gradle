@@ -68,7 +68,7 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
-    implementation 'com.squareup.retrofit2:retrofit:2.0.0'// Remplacez '2.x.x' par la version actuelle
-    implementation 'com.squareup.retrofit2:converter-gson:2.0.0' // Assurez-vous d'utiliser la même version que Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.0.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
 
 }
