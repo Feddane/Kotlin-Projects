@@ -176,33 +176,33 @@ class MainActivity : ComponentActivity() {
                 latitude, longitude, Constants.METRIC_UNIT, Constants.APP_ID
             )
 
-//            listCall.enqueue(object : Callback<WeatherResponse> {
-//                override fun onResponse(
-//                    call: Call<WeatherResponse>?,
-//                    response: Response<WeatherResponse>?
-//                ) {
-//                  if (response!!.isSuccessful){
-//                      val weatherList : WeatherResponse = response.body()
-//                      Log.i("Response Result", "$weatherList")
-//                  }else{
-//                      val rc = response.code()
-//                      when(rc){
-//                          400 -> {
-//                              Log.e("Error 400",  "Bad connection")
-//                          }
-//                          404 -> {
-//                              Log.e("Error 404",  "Not Found")
-//                          }else -> {
-//                          Log.e("Error ",  "Generic Error")
-//                          }
-//                      }
-//                  }
-//                }
-//
-//                override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
-//                    Log.e("Erroooorrrr",  t!!.message.toString())
-//                }
-//            })
+            listCall.enqueue(object : Callback<WeatherResponse> {
+                override fun onResponse(
+                    call: Call<WeatherResponse>?,
+                    response: Response<WeatherResponse>?
+                ) {
+                  if (response!!.isSuccessful){
+                      val weatherList : WeatherResponse = response.body()
+                      Log.i("Response Result", "$weatherList")
+                  }else{
+                      val rc = response.code()
+                      when(rc){
+                          400 -> {
+                              Log.e("Error 400",  "Bad connection")
+                          }
+                          404 -> {
+                              Log.e("Error 404",  "Not Found")
+                          }else -> {
+                          Log.e("Error ",  "Generic Error")
+                          }
+                      }
+                  }
+                }
+
+                override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
+                    Log.e("Erroooorrrr",  t!!.message.toString())
+                }
+            })
 
         }else{
             Toast.makeText(this, "No Internet connection available", Toast.LENGTH_SHORT).show()
