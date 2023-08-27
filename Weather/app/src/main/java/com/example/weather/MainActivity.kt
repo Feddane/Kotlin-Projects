@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.android.gms.location.*
 import androidx.annotation.RequiresApi
+import com.example.weather.ui.theme.Constants
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.karumi.dexter.Dexter
@@ -132,6 +133,7 @@ class MainActivity : ComponentActivity() {
 
             val longitude = mLastLocation?.longitude
             Log.i("Current Longitude", "$longitude")
+            getLocationWeatherDetails()
         }
     }
 
@@ -144,6 +146,15 @@ class MainActivity : ComponentActivity() {
         val locationManager : LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    }
+
+
+    private fun getLocationWeatherDetails(){
+        if (Constants.isNetworkAvailable(this)){
+            Toast.makeText(this, "You have connected to the Internet.", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "No Internet connection available", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
