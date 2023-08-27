@@ -27,6 +27,9 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import retrofit2.*
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class MainActivity : ComponentActivity() {
 
@@ -143,7 +146,7 @@ class MainActivity : ComponentActivity() {
     private fun isLocationEnabled() : Boolean{
 
         //This provides access to the system location services
-        val locationManager : LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager : LocationManager = getSystemService(LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
@@ -151,7 +154,13 @@ class MainActivity : ComponentActivity() {
 
     private fun getLocationWeatherDetails(){
         if (Constants.isNetworkAvailable(this)){
-            Toast.makeText(this, "You have connected to the Internet.", Toast.LENGTH_SHORT).show()
+
+            val retrofit: Retrofit = Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create()) // Correct the typo here
+                .build()
+
+
         }else{
             Toast.makeText(this, "No Internet connection available", Toast.LENGTH_SHORT).show()
         }
