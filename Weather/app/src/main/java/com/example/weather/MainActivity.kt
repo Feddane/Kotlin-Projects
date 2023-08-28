@@ -10,12 +10,14 @@ import android.content.Context
 import android.content.Intent
 import android.location.Location
 import android.location.LocationManager
+import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -283,22 +285,23 @@ class MainActivity : ComponentActivity() {
             tv_sunset_time.text = unixTime(weatherList.sys.sunset.toLong())
 
             // Here we update the main icon
-//            when (weatherList.weather[z].icon) {
-//                "01d" -> iv_main.setImageResource(R.drawable.sunny)
-//                "02d" -> iv_main.setImageResource(R.drawable.cloud)
-//                "03d" -> iv_main.setImageResource(R.drawable.cloud)
-//                "04d" -> iv_main.setImageResource(R.drawable.cloud)
-//                "04n" -> iv_main.setImageResource(R.drawable.cloud)
-//                "10d" -> iv_main.setImageResource(R.drawable.rain)
-//                "11d" -> iv_main.setImageResource(R.drawable.storm)
-//                "13d" -> iv_main.setImageResource(R.drawable.snowflake)
-//                "01n" -> iv_main.setImageResource(R.drawable.cloud)
-//                "02n" -> iv_main.setImageResource(R.drawable.cloud)
-//                "03n" -> iv_main.setImageResource(R.drawable.cloud)
-//                "10n" -> iv_main.setImageResource(R.drawable.cloud)
-//                "11n" -> iv_main.setImageResource(R.drawable.rain)
-//                "13n" -> iv_main.setImageResource(R.drawable.snowflake)
-//            }
+            val iv_main : ImageView = findViewById(R.id.iv_main)
+            when (weatherList.weather[z].icon) {
+                "01d" -> iv_main.setImageResource(R.drawable.sunny)
+                "02d" -> iv_main.setImageResource(R.drawable.cloud)
+                "03d" -> iv_main.setImageResource(R.drawable.cloud)
+                "04d" -> iv_main.setImageResource(R.drawable.cloud)
+                "04n" -> iv_main.setImageResource(R.drawable.cloud)
+                "10d" -> iv_main.setImageResource(R.drawable.rain)
+                "11d" -> iv_main.setImageResource(R.drawable.storm)
+                "13d" -> iv_main.setImageResource(R.drawable.snowflake)
+                "01n" -> iv_main.setImageResource(R.drawable.cloud)
+                "02n" -> iv_main.setImageResource(R.drawable.cloud)
+                "03n" -> iv_main.setImageResource(R.drawable.cloud)
+                "10n" -> iv_main.setImageResource(R.drawable.cloud)
+                "11n" -> iv_main.setImageResource(R.drawable.rain)
+                "13n" -> iv_main.setImageResource(R.drawable.snowflake)
+            }
         }
 
 
