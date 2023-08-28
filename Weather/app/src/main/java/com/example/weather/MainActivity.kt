@@ -354,11 +354,6 @@ class MainActivity : ComponentActivity() {
     }
 
 
-    //this is the last point
-
-
-
-
 
     /**
      * Function is used to get the temperature unit value.
