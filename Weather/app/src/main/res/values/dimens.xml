@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TODO (STEP 2: Add the dimen values here.)-->
+    <!--START-->
+    <dimen name="main_content_padding_progress_dialog">10dp</dimen>
+    <dimen name="progress_bar_size">50dp</dimen>
+    <dimen name="progress_bar_marginEnd">10dp</dimen>
+    <dimen name="progress_bar_text_size">16sp</dimen>
+    <!--END-->
+</resources>
