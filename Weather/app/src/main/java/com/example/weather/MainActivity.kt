@@ -274,13 +274,13 @@ class MainActivity : ComponentActivity() {
             tv_temp.text =
                 weatherList.main.temp.toString() + getUnit(application.resources.configuration.locales.toString())
             tv_humidity.text = weatherList.main.humidity.toString() + " per cent"
-//            tv_min.text = weatherList.main.tempMin.toString() + " min"
-//            tv_max.text = weatherList.main.tempMax.toString() + " max"
+            tv_min.text = weatherList.main.temp_min.toString() + " min"
+            tv_max.text = weatherList.main.temp_max.toString() + " max"
             tv_speed.text = weatherList.wind.speed.toString()
             tv_name.text = weatherList.name
             tv_country.text = weatherList.sys.country
-//            tv_sunrise_time.text = unixTime(weatherList.sys.sunrise.toLong())
-//            tv_sunset_time.text = unixTime(weatherList.sys.sunset.toLong())
+            tv_sunrise_time.text = unixTime(weatherList.sys.sunrise.toLong())
+            tv_sunset_time.text = unixTime(weatherList.sys.sunset.toLong())
 
             // Here we update the main icon
 //            when (weatherList.weather[z].icon) {
@@ -321,13 +321,13 @@ class MainActivity : ComponentActivity() {
     /**
      * The function is used to get the formatted time based on the Format and the LOCALE we pass to it.
      */
-//    private fun unixTime(timex: Long): String? {
-//        val date = Date(timex * 1000L)
-//        @SuppressLint("SimpleDateFormat") val sdf =
-//            SimpleDateFormat("HH:mm:ss")
-//        sdf.timeZone = TimeZone.getDefault()
-//        return sdf.format(date)
-//    }
+    private fun unixTime(timex: Long): String? {
+        val date = Date(timex * 1000L)
+        @SuppressLint("SimpleDateFormat")
+        val sdf = SimpleDateFormat("HH:mm:ss")
+        sdf.timeZone = TimeZone.getDefault()
+        return sdf.format(date)
+    }
 
 
 
