@@ -17,6 +17,8 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -246,6 +248,26 @@ class MainActivity : ComponentActivity() {
     private fun hideProgressDialog() {
         if (mProgressDialog != null) {
             mProgressDialog!!.dismiss()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    @RequiresApi(Build.VERSION_CODES.S)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            // TODO (STEP 7: Now finally, make an api call on item selection.)
+            // START
+            R.id.action_refresh -> {
+                requestLocationData()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+            // END
         }
     }
 
