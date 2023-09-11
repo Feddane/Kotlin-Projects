@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface TheMovieDBInterface {
 
-    //get the data from moviedb api
+    //get the data from movieDB api
     @GET("movie/{movie_id}")
     fun getMovieDetails(
        @Path("movie_id")
