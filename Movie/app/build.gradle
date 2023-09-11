@@ -53,9 +53,10 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     //Retrofit
-    implementation 'com.squarep.retrofit2:retorfit:2.5.0'
-    implementation 'com.squarep.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squarep.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
 
 
     //Gson
