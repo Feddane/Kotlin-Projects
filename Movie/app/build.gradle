@@ -58,9 +58,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
 
 
-
     //Gson
     implementation 'com.google.code.gson:gson:2.8.5'
+
+
+    //Client
+    implementation 'com.squarep.okhttp3.okhttp:4.9.1'
 
 
     //Glide
@@ -69,6 +72,7 @@ dependencies {
 
     //paging
     implementation 'androidx.paging:paging-runtime:3.2.1'
+
 
     //Rx
     implementation 'io.reactivex.rxjava2:rxjava:2.2.7'
