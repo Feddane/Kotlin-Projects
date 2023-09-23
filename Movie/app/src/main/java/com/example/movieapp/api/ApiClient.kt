@@ -15,7 +15,7 @@ class ApiClient {
 
     private val requestInterceptor = Interceptor{chain ->
     val url = chain.request()
-        .url()
+        .url
         .newBuilder()
         .addQueryParameter("api_key", API_KEY)
         .build()

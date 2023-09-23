@@ -12,6 +12,7 @@ import coil.load
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemRowBinding
 import com.example.movieapp.response.MoviesListResponse
+import com.example.movieapp.uii.DetailsMovieActivity
 import com.example.movieapp.utils.Constants.POSTER_BASE_URL
 
 
@@ -33,6 +34,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(differ.currentList[position])
+        holder.setIsRecyclable(false) //pour eviter que les elements se repetent dans recyclerview
     }
 
 
@@ -49,11 +51,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
                 }
                 tvLang.text=item.originalLanguage
 
-//                root.setOnClickListener {
-//                    val intent = Intent(context, MovieDetailesActivity::class.java)
-//                    intent.putExtra("id", item?.id)
-//                    context.startActivity(intent)
-//                }
+                root.setOnClickListener {
+                    val intent = Intent(context, DetailsMovieActivity::class.java)
+                    intent.putExtra("id", item?.id)
+                    context.startActivity(intent)
+                }
             }
         }
     }
