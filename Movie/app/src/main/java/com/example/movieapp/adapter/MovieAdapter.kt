@@ -2,7 +2,6 @@ package com.example.movieapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.icu.number.Scale
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -12,7 +11,6 @@ import coil.load
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemRowBinding
 import com.example.movieapp.response.MoviesListResponse
-import com.example.movieapp.uii.DetailsMovieActivity
 import com.example.movieapp.utils.Constants.POSTER_BASE_URL
 
 
