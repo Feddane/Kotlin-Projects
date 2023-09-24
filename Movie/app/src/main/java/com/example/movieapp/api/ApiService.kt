@@ -10,10 +10,13 @@ import retrofit2.http.Query
 interface ApiService {
 
     //method to get data
-    @GET("/movie/popular")
-    fun getPopularMovie(@Query("page") page: Int) : Call<MoviesListResponse>
+    @GET("movie/popular")
+    fun getPopularMovies(@Query("api_key") apiKey: String, @Query("page") page: Int): Call<MoviesListResponse>
 
-    @GET("movie/{movie_id")
-    fun getMoviedetails(@Path("movie_id") id: Int) : Call<DetailsMovieResponse>
+    @GET("movie/{movie_id}")
+    fun getMovieDetails(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+    ): Call<DetailsMovieResponse>
 
 }

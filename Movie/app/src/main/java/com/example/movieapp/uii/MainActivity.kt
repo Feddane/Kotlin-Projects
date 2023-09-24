@@ -5,13 +5,12 @@ import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.movieapp.R
 import com.example.movieapp.adapter.MovieAdapter
 import com.example.movieapp.api.ApiClient
 import com.example.movieapp.api.ApiService
 import com.example.movieapp.databinding.ActivityMainBinding
 import com.example.movieapp.response.MoviesListResponse
+import com.example.movieapp.utils.Constants.API_KEY
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +34,7 @@ class MainActivity : ComponentActivity() {
         binding.apply {
             prgBarMovies.visibility = View.VISIBLE
 
-            val callMovieApi = api.getPopularMovie(1)
+            val callMovieApi = api.getPopularMovies(API_KEY, 1)
             callMovieApi.enqueue(object : Callback<MoviesListResponse> {
                 override fun onResponse(
                     call: Call<MoviesListResponse>,

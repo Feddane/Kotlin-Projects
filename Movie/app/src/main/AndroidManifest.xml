@@ -14,7 +14,9 @@
         tools:targetApi="31">
         <activity
             android:name=".uii.DetailesMovieActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Details Movie Activity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".uii.MainActivity"
             android:exported="true"

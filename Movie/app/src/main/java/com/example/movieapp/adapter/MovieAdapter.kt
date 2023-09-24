@@ -11,6 +11,7 @@ import coil.load
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemRowBinding
 import com.example.movieapp.response.MoviesListResponse
+import com.example.movieapp.uii.DetailesMovieActivity
 import com.example.movieapp.utils.Constants.POSTER_BASE_URL
 
 
@@ -21,10 +22,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        binding = ItemRowBinding.inflate(inflater, parent, false)
+        val binding = ItemRowBinding.inflate(inflater, parent, false)
         context = parent.context
-        return ViewHolder()
+        return ViewHolder(binding)
     }
+
 
     override fun getItemCount(): Int {
         return differ.currentList.size
@@ -36,27 +38,28 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     }
 
 
-    inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item : MoviesListResponse.Result){
+    inner class ViewHolder(private val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: MoviesListResponse.Result) {
             binding.apply {
                 tvMovieName.text = item.title
                 tvMovieDateRelease.text = item.releaseDate
-                tvRate.text=item.voteAverage.toString()
+                tvRate.text = item.voteAverage.toString()
                 val moviePosterURL = POSTER_BASE_URL + item?.posterPath
-                ImgMovie.load(moviePosterURL){
+                ImgMovie.load(moviePosterURL) {
                     crossfade(true)
                     placeholder(R.drawable.poster_placeholder)
                 }
-                tvLang.text=item.originalLanguage
+                tvLang.text = item.originalLanguage
 
                 root.setOnClickListener {
-                    val intent = Intent(context, DetailsMovieActivity::class.java)
+                    val intent = Intent(context, DetailesMovieActivity::class.java)
                     intent.putExtra("id", item?.id)
                     context.startActivity(intent)
                 }
             }
         }
     }
+
 
     private val differCallback = object : DiffUtil.ItemCallback<MoviesListResponse.Result>() {
         override fun areItemsTheSame(oldItem: MoviesListResponse.Result, newItem: MoviesListResponse.Result): Boolean {
