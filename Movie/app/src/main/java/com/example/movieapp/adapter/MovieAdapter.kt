@@ -51,6 +51,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
                 }
                 tvLang.text = item.originalLanguage
 
+                //when you click on you go to the second activity "DetailesMovieActivity"
                 root.setOnClickListener {
                     val intent = Intent(context, DetailesMovieActivity::class.java)
                     intent.putExtra("id", item?.id)
@@ -60,7 +61,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
         }
     }
 
-
+/* calculer les différences et de mettre à jour la RecyclerView en conséquence,
+    ce qui améliore les performances et l'efficacité de votre application. */
     private val differCallback = object : DiffUtil.ItemCallback<MoviesListResponse.Result>() {
         override fun areItemsTheSame(oldItem: MoviesListResponse.Result, newItem: MoviesListResponse.Result): Boolean {
             return oldItem.id == newItem.id
