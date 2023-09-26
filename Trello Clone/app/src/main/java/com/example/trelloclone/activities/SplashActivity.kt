@@ -1,9 +1,9 @@
-package com.example.trelloclone
+package com.example.trelloclone.activities
 
-import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import com.example.trelloclone.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
