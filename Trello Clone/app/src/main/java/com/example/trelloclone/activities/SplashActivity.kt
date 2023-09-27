@@ -8,7 +8,7 @@ import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.trelloclone.R
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)

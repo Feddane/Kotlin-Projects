@@ -7,7 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.trelloclone.R
 
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
