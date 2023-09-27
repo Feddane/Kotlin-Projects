@@ -26,7 +26,6 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun showProgressDialog(text: String) {
-        val tv_progress_text = mProgressDialog.findViewById<TextView>(R.id.tv_progress_text)
 
         mProgressDialog = Dialog(this)
 
@@ -34,6 +33,7 @@ open class BaseActivity : AppCompatActivity() {
         The resource will be inflated, adding all top-level views to the screen.*/
         mProgressDialog.setContentView(R.layout.dialog_progress)
 
+        val tv_progress_text = mProgressDialog.findViewById<TextView>(R.id.tv_progress_text)
        tv_progress_text.text = text
 
         //Start the dialog and display it on screen.
