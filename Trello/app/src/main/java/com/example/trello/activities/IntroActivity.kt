@@ -7,10 +7,10 @@ import android.os.Handler
 import android.view.WindowManager
 import com.example.trello.R
 
-class SplashActivity : AppCompatActivity() {
+class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContentView(R.layout.activity_intro)
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -18,9 +18,5 @@ class SplashActivity : AppCompatActivity() {
         )
 
 
-        Handler().postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
-            finish()
-        }, 2500)
     }
 }
