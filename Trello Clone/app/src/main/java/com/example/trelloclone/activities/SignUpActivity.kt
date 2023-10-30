@@ -24,6 +24,11 @@ class SignUpActivity : BaseActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        val btn_sign_up = findViewById<Button>(R.id.btn_sign_up)
+        btn_sign_up.setOnClickListener {
+            registerUser()
+        }
+
         setupActionBar()
     }
 
@@ -40,10 +45,6 @@ class SignUpActivity : BaseActivity() {
 
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        val btn_sign_up = findViewById<Button>(R.id.btn_sign_up)
-        btn_sign_up.setOnClickListener {
-            registerUser()
-        }
     }
 
 
@@ -71,7 +72,7 @@ class SignUpActivity : BaseActivity() {
                         FirebaseAuth.getInstance().signOut()
                         finish()
                     }else{
-                        Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Registration Failed!!", Toast.LENGTH_SHORT).show()
                     }
                 }
 
