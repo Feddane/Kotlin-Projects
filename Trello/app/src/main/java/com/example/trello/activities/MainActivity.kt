@@ -1,4 +1,4 @@
-package com.example.trello
+package com.example.trello.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
