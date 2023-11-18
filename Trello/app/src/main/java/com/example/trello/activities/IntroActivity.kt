@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import android.widget.Button
 import com.example.trello.R
 
 class IntroActivity : AppCompatActivity() {
@@ -17,6 +18,10 @@ class IntroActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        val btn_sign_up_intro = findViewById<Button>(R.id.btn_sign_up_intro)
+        btn_sign_up_intro.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
 
     }
 }
