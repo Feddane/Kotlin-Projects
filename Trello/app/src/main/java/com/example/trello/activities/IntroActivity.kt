@@ -8,7 +8,7 @@ import android.view.WindowManager
 import android.widget.Button
 import com.example.trello.R
 
-class IntroActivity : AppCompatActivity() {
+class IntroActivity : BaseActivtiy() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)

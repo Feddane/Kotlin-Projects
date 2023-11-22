@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.trello.ui.theme.TrelloTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivtiy() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

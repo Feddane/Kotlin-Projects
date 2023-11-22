@@ -7,7 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import com.example.trello.R
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivtiy() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
