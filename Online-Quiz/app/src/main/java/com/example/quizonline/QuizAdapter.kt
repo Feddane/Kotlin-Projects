@@ -15,12 +15,12 @@ class QuizAdapter(private val quizModelList: List<QuizModel> ): RecyclerView.Ada
                 quizTitleText.text = model.title
                 quizSubtitleText.text = model.subtitle
                 quizTimeText.text = model.time + " min"
-                /*root.setOnClickListener {
+                root.setOnClickListener {
                     val intent  = Intent(root.context,QuizActivity::class.java)
-                    QuizActivity.questionModelList = model.questionList
-                    QuizActivity.time = model.time
+//                    QuizActivity.questionModelList = model.questionList
+//                    QuizActivity.time = model.time
                     root.context.startActivity(intent)
-                }*/
+                }
             }
         }
     }
