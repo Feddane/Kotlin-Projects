@@ -58,6 +58,11 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loadQuestions(){
+        selectedAnswer = ""
+         if (currentQuestionIndex == questionModelList.size){
+             finishQuiz()
+             return
+         }
         binding.apply {
             questionIndicatorTextview.text = "Question ${currentQuestionIndex + 1} / ${questionModelList.size}"
             questionProgressIndicator.progress =
@@ -68,6 +73,10 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             btn2.text = questionModelList[currentQuestionIndex].options[2]
             btn3.text = questionModelList[currentQuestionIndex].options[3]
         }
+    }
+
+    private fun finishQuiz() {
+
     }
 
     override fun onClick(view: View?) {
