@@ -19,6 +19,8 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var binding: ActivityQuizBinding
 
     var currentQuestionIndex = 0
+    var selectedAnswer = ""
+    var score = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,6 +73,11 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         val clickedBtn = view as Button
 
+        //next button is clicked
+        if (selectedAnswer == questionModelList[currentQuestionIndex].correct){
+            score++
+        }
+
         binding.apply {
             btn0.setBackgroundColor(getColor(R.color.gray))
             btn1.setBackgroundColor(getColor(R.color.gray))
@@ -84,6 +91,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             loadQuestions()
         }else{
             //options button is clicked
+            selectedAnswer = clickedBtn.text.toString()
             clickedBtn.setBackgroundColor(getColor(R.color.orange))
         }
     }
