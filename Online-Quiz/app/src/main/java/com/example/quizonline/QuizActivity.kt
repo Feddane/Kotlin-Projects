@@ -2,6 +2,7 @@ package com.example.quizonline
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.TextView
 import com.example.quizonline.databinding.ActivityQuizBinding
 
@@ -9,6 +10,7 @@ class QuizActivity : AppCompatActivity() {
 
     companion object{
         var questionModelList : List<QuestionModel> = listOf()
+        var time : String = ""
     }
 
 
@@ -23,6 +25,25 @@ class QuizActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadQuestions()
+        startTimer()
+    }
+
+    private fun startTimer(){
+        val totalTimeInMillis = time.toInt() * 60 * 1000L
+        object : CountDownTimer(totalTimeInMillis,1000L){
+            override fun onTick(millisUntilFinished: Long) {
+                val seconds = millisUntilFinished /1000
+                val minutes = seconds/60
+                val remainingSeconds = seconds % 60
+                binding.timerIndicatorTextview.text = String.format("%02d:%02d", minutes,remainingSeconds)
+
+            }
+
+            override fun onFinish() {
+                //Finish the quiz
+            }
+
+        }.start()
     }
 
     private fun loadQuestions(){
