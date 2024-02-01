@@ -71,12 +71,20 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         val clickedBtn = view as Button
 
+        binding.apply {
+            btn0.setBackgroundColor(getColor(R.color.gray))
+            btn1.setBackgroundColor(getColor(R.color.gray))
+            btn2.setBackgroundColor(getColor(R.color.gray))
+            btn3.setBackgroundColor(getColor(R.color.gray))
+        }
+
         if (clickedBtn.id ==  R.id.next_btn){
             // next button is clicked
             currentQuestionIndex++
             loadQuestions()
         }else{
             //options button is clicked
+            clickedBtn.setBackgroundColor(getColor(R.color.orange))
         }
     }
 
