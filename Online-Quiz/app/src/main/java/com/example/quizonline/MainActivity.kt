@@ -35,11 +35,8 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
+                setupRecyclerView()
             }
-
-
-
-        setupRecyclerView()
     }
 
     private fun setupRecyclerView() {
