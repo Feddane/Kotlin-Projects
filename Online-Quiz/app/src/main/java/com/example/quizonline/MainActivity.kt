@@ -3,6 +3,7 @@ package com.example.quizonline
 import android.media.MediaCodec.LinearBlock
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizonline.databinding.ActivityMainBinding
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getDataFromFirebase(){
+        binding.progressBar.visibility = View.VISIBLE
         FirebaseDatabase.getInstance().reference
             .get()
             .addOnSuccessListener { dataSnapshot ->
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        binding.progressBar.visibility = View.GONE
         adapter = QuizAdapter(quizModelList)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
