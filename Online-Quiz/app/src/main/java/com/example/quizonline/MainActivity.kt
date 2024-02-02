@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         quizModelList = mutableListOf()
         getDataFromFirebase()
-
     }
 
     private fun getDataFromFirebase(){
