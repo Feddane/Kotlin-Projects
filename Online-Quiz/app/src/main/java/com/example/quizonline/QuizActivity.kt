@@ -37,7 +37,6 @@ class QuizActivity : AppCompatActivity(),View.OnClickListener {
             btn3.setOnClickListener(this@QuizActivity)
             nextBtn.setOnClickListener(this@QuizActivity)
         }
-
         loadQuestions()
         startTimer()
     }
@@ -133,6 +132,5 @@ class QuizActivity : AppCompatActivity(),View.OnClickListener {
             .setView(dialogBinding.root)
             .setCancelable(false)
             .show()
-
     }
 }
